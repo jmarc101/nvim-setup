@@ -1,18 +1,106 @@
-### ThePrimeagen's init.lua
-Prerequisite: install [ripgrep](https://github.com/BurntSushi/ripgrep).
+# Neovim Cheat Sheet
 
-[The full video of me setting up this repo](https://www.youtube.com/watch?v=w7i4amO_zaE)
+## Global Settings:
+- Set map leader: `Space`
 
-For anyone that is interested in my vimrc, i will have a commit log below
-documenting each one of my commits (easy to C-f the change you want to know
-about though i would just suggest `git log -S`).
+## Navigation and UI:
+- Navigate to next error: `<C-k>`
+- Navigate to previous error: `<C-j>`
+- Navigate to next LSP issue: `<leader>k`
+- Navigate to previous LSP issue: `<leader>j`
+# Neovim Cheat Sheet
 
-### Change Log
-* [33eee9ad](https://github.com/ThePrimeagen/init.lua/commit/33eee9ad0c035a92137d99dae06a2396be4c892e) initial commits
-* [cb210006](https://github.com/ThePrimeagen/init.lua/commit/cb210006356b4b613b71c345cb2b02eefa961fc0) netrw, autogroups for yank highlighting, and auto remove whitespace
-* [c8c0bf4a](https://github.com/ThePrimeagen/init.lua/commit/c8c0bf4aeacd0bd77136d9c5ee490680515a106b) zenmode.  i really like this plugin
-* [81c770d2](https://github.com/ThePrimeagen/init.lua/commit/81c770d2d2e32e59916b39c7f5babbc8560f7a82) copilot testing
-* [4a96e645](https://github.com/ThePrimeagen/init.lua/commit/4a96e6457b0a0241ca7361ce62177aa6b9a33a38) fugitive mappings for push and pull
-* [a3bad06a](https://github.com/ThePrimeagen/init.lua/commit/a3bad06a4681c322538d609aa1c0bd18880f77c6) disabled eslint.  driving me crazy
+## Global Settings:
+- Set map leader: `Space`
 
+## Navigation and UI:
+- Navigate to next error: `<C-k>`
+- Navigate to previous error: `<C-j>`
+- Navigate to next LSP issue: `<leader>k`
+- Navigate to previous LSP issue: `<leader>j`
+- Show LSP hover info: `K`
+- LSP find definition: `gd`
+- LSP show workspace symbols: `<leader>vws`
+- LSP show diagnostic float: `<leader>vd`
+- LSP code action: `<leader>vca`
+- LSP show references: `<leader>vrr`
+- LSP rename symbol: `<leader>vrn`
+- LSP signature help in insert mode: `<C-h>`
+- Grep prompt: `<leader>ps`
+- Open Git pane: `<leader>gs`
+- Telescope find files: `<leader>pf`
+- Telescope git files: `<C-p>`
 
+## Editing:
+- Select & copy to clipboard: `<leader>y` and `<leader>Y`
+- Delete & keep in buffer (no clipboard): `<leader>d`
+- Paste from buffer (overwriting selection): `<leader>p`
+- Move selected lines down: `J`
+- Move selected lines up: `K`
+- Join lines and reposition cursor: `mzJ'z`
+- Set file as executable: `<leader>x`
+- Quick substitution of word under cursor: `<leader>s`
+- Clear search in insert mode: `<C-c>`
+- Reload vim configuration: `<leader><leader>`
+
+## Git Commands:
+- Push current branch: `<leader>p`
+- Pull with rebase: `<leader>P`
+- Quick push setup (to set remote branch): `<leader>t`
+
+## Utilities & Plugins:
+- Open `packer.lua` config file: `<leader>vpp`
+- Start Vim-With-Me session: `<leader>vwm`
+- Stop Vim-With-Me session: `<leader>svwm`
+- Disable 'Q' in normal mode: `Q`
+- Create new Tmux session: `<C-f>`
+- Format buffer with LSP: `<leader>f`
+- Start "make_it_rain" in CellularAutomaton: `<leader>mr`
+
+## Comments:
+- "Greatest remap ever": Press leader then `p` in visual mode to delete selected and paste
+- "Next greatest remap ever": Press leader then `y` in normal or visual mode to copy to clipboard
+- "This is going to get me cancelled": `<C-c>` in insert mode exits to normal mode
+- Show LSP hover info: `K`
+- LSP find definition: `gd`
+- LSP show workspace symbols: `<leader>vws`
+- LSP show diagnostic float: `<leader>vd`
+- LSP code action: `<leader>vca`
+- LSP show references: `<leader>vrr`
+- LSP rename symbol: `<leader>vrn`
+- LSP signature help in insert mode: `<C-h>`
+- Grep prompt: `<leader>ps`
+- Open Git pane: `<leader>gs`
+- Telescope find files: `<leader>pf`
+- Telescope git files: `<C-p>`
+
+## Editing:
+- Select & copy to clipboard: `<leader>y` and `<leader>Y`
+- Delete & keep in buffer (no clipboard): `<leader>d`
+- Paste from buffer (overwriting selection): `<leader>p`
+- Move selected lines down: `J`
+- Move selected lines up: `K`
+- Join lines and reposition cursor: `mzJ'z`
+- Set file as executable: `<leader>x`
+- Quick substitution of word under cursor: `<leader>s`
+- Clear search in insert mode: `<C-c>`
+- Reload vim configuration: `<leader><leader>`
+
+## Git Commands:
+- Push current branch: `<leader>p`
+- Pull with rebase: `<leader>P`
+- Quick push setup (to set remote branch): `<leader>t`
+
+## Utilities & Plugins:
+- Open `packer.lua` config file: `<leader>vpp`
+- Start Vim-With-Me session: `<leader>vwm`
+- Stop Vim-With-Me session: `<leader>svwm`
+- Disable 'Q' in normal mode: `Q`
+- Create new Tmux session: `<C-f>`
+- Format buffer with LSP: `<leader>f`
+- Start "make_it_rain" in CellularAutomaton: `<leader>mr`
+
+## Comments:
+- "Greatest remap ever": Press leader then `p` in visual mode to delete selected and paste
+- "Next greatest remap ever": Press leader then `y` in normal or visual mode to copy to clipboard
+- "This is going to get me cancelled": `<C-c>` in insert mode exits to normal mode
