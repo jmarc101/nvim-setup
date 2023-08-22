@@ -71,6 +71,35 @@ return require('packer').startup(function(use)
           -- refer to the configuration section below
       }
   }
+  use {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+  }
 
+  use({
+  "utilyre/barbecue.nvim",
+  tag = "*",
+  requires = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons", -- optional dependency
+  },
+  after = "nvim-web-devicons", -- keep this if you're using NvChad
+  config = function()
+    require("barbecue").setup()
+  end,
+})
+
+use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+}
+
+use 'nvim-tree/nvim-web-devicons'
+use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
 end)
 
