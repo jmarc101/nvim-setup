@@ -1,11 +1,6 @@
 -- triggers CursorHold event faster
 vim.opt.updatetime = 200
 
-require("barbecue").setup({
-  create_autocmd = false, -- prevent barbecue from updating itself automatically
-   theme = 'tokyonight',
-})
-
 vim.api.nvim_create_autocmd({
   "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
   "BufWinEnter",

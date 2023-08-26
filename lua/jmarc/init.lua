@@ -1,5 +1,6 @@
 require("jmarc.set")
 require("jmarc.remap")
+vim.o.clipboard = "unnamedplus"
 
 local augroup = vim.api.nvim_create_augroup
 local JmarcGroup = augroup('Jmarc', {})
