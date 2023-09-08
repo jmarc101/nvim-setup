@@ -1,6 +1,20 @@
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader><tab>", vim.cmd.Ex)
+
+local opts = { silent=true }
+
+-- Vertical Split
+vim.api.nvim_set_keymap('n', '<leader>wv', ':vsplit<CR>', opts)
+
+-- Horizontal Split
+vim.api.nvim_set_keymap('n', '<leader>wh', ':split<CR>', opts)
+
+-- Navigation keybindings
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', opts)
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', opts)
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', opts)
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', opts)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -31,11 +45,10 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+--vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+--vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
