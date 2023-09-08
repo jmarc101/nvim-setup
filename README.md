@@ -17,7 +17,10 @@
     git clone https://github.com/jmarc101/nvim-setup ~/.config/nvim
 ```
 6. Sync with Packer:
-    Launch Neovim and execute:
+    Launch Neovim  and execute:
+   ```
+   nvim ~/.config/nvim/lua/jmarc/packer.lua
+   ```
 ```
     :so
 ```

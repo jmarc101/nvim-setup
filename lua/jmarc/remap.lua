@@ -1,62 +1,72 @@
 
+-- Set the leader key to space
 vim.g.mapleader = " "
+
+-- Open the Ex (command-line) window when pressing leader + tab
 vim.keymap.set("n", "<leader><tab>", vim.cmd.Ex)
-
-local opts = { silent=true }
-
 -- Vertical Split
-vim.api.nvim_set_keymap('n', '<leader>wv', ':vsplit<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>wv', ':vsplit<CR>', { silent = true })
 
 -- Horizontal Split
-vim.api.nvim_set_keymap('n', '<leader>wh', ':split<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>wh', ':split<CR>', { silent = true })
 
--- Navigation keybindings
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', opts)
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', opts)
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', opts)
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', opts)
+-- Navigation keybindings (Ctrl + hjkl for window movement)
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 
+-- Visual mode mappings to move lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Normal mode mappings to move lines up and down
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- Start VimWithMe collaborative editing
 vim.keymap.set("n", "<leader>vwm", function()
     require("vim-with-me").StartVimWithMe()
 end)
+
+-- Stop VimWithMe collaborative editing
 vim.keymap.set("n", "<leader>svwm", function()
     require("vim-with-me").StopVimWithMe()
 end)
 
--- greatest remap ever
+-- Delete and paste in a single key press (cut and paste in visual mode)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- next greatest remap ever : asbjornHaland
+-- Yank and paste in a single key press (yank and paste in visual mode)
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Delete without yanking (delete in visual mode)
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
--- This is going to get me cancelled
+-- Remap Ctrl-c in insert mode to escape (exit insert mode)
 vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
+-- Remap Q to do nothing (avoid accidentally pressing it and closing Neovim)
 vim.keymap.set("n", "Q", "<nop>")
+
+-- Format code using LSP (Language Server Protocol)
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
---vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
---vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- Move to the next and previous error in the quickfix list
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+-- Search and replace using visual mode selection
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Add executable permission to the current file
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-
-vim.keymap.set('n', '<leader><leader>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+-- Show code actions using LSP (Language Server Protocol)
+vim.keymap.set('n', '<leader><leader>', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true })
 
