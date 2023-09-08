@@ -1,106 +1,62 @@
-# Neovim Cheat Sheet
+# Neovim Setup
 
-## Global Settings:
-- Set map leader: `Space`
+## Installation 
 
-## Navigation and UI:
-- Navigate to next error: `<C-k>`
-- Navigate to previous error: `<C-j>`
-- Navigate to next LSP issue: `<leader>k`
-- Navigate to previous LSP issue: `<leader>j`
-# Neovim Cheat Sheet
+### Fedora
 
-## Global Settings:
-- Set map leader: `Space`
+1. Install Dependencies:
+    sudo dnf install gcc nodejs neovim
 
-## Navigation and UI:
-- Navigate to next error: `<C-k>`
-- Navigate to previous error: `<C-j>`
-- Navigate to next LSP issue: `<leader>k`
-- Navigate to previous LSP issue: `<leader>j`
-- Show LSP hover info: `K`
-- LSP find definition: `gd`
-- LSP show workspace symbols: `<leader>vws`
-- LSP show diagnostic float: `<leader>vd`
-- LSP code action: `<leader>vca`
-- LSP show references: `<leader>vrr`
-- LSP rename symbol: `<leader>vrn`
-- LSP signature help in insert mode: `<C-h>`
-- Grep prompt: `<leader>ps`
-- Open Git pane: `<leader>gs`
-- Telescope find files: `<leader>pf`
-- Telescope git files: `<C-p>`
+2. Set Up Packer:
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-## Editing:
-- Select & copy to clipboard: `<leader>y` and `<leader>Y`
-- Delete & keep in buffer (no clipboard): `<leader>d`
-- Paste from buffer (overwriting selection): `<leader>p`
-- Move selected lines down: `J`
-- Move selected lines up: `K`
-- Join lines and reposition cursor: `mzJ'z`
-- Set file as executable: `<leader>x`
-- Quick substitution of word under cursor: `<leader>s`
-- Clear search in insert mode: `<C-c>`
-- Reload vim configuration: `<leader><leader>`
+3. Clone Configuration:
+    git clone https://github.com/jmarc101/nvim-setup ~/.config/nvim
 
-## Git Commands:
-- Push current branch: `<leader>p`
-- Pull with rebase: `<leader>P`
-- Quick push setup (to set remote branch): `<leader>t`
+4. Sync with Packer:
+    Launch Neovim and execute:
+    :so 
+    :PackerSync
 
-## Utilities & Plugins:
-- Open `packer.lua` config file: `<leader>vpp`
-- Start Vim-With-Me session: `<leader>vwm`
-- Stop Vim-With-Me session: `<leader>svwm`
-- Disable 'Q' in normal mode: `Q`
-- Create new Tmux session: `<C-f>`
-- Format buffer with LSP: `<leader>f`
-- Start "make_it_rain" in CellularAutomaton: `<leader>mr`
+5. Important Notes:
+   - Before syncing, consider removing `~/.config/nvim/after/` to prevent issues.
+   - If there are issues, temporarily move the folder and move it back after syncing.
 
-## Comments:
-- "Greatest remap ever": Press leader then `p` in visual mode to delete selected and paste
-- "Next greatest remap ever": Press leader then `y` in normal or visual mode to copy to clipboard
-- "This is going to get me cancelled": `<C-c>` in insert mode exits to normal mode
-- Show LSP hover info: `K`
-- LSP find definition: `gd`
-- LSP show workspace symbols: `<leader>vws`
-- LSP show diagnostic float: `<leader>vd`
-- LSP code action: `<leader>vca`
-- LSP show references: `<leader>vrr`
-- LSP rename symbol: `<leader>vrn`
-- LSP signature help in insert mode: `<C-h>`
-- Grep prompt: `<leader>ps`
-- Open Git pane: `<leader>gs`
-- Telescope find files: `<leader>pf`
-- Telescope git files: `<C-p>`
+## Keybindings
 
-## Editing:
-- Select & copy to clipboard: `<leader>y` and `<leader>Y`
-- Delete & keep in buffer (no clipboard): `<leader>d`
-- Paste from buffer (overwriting selection): `<leader>p`
-- Move selected lines down: `J`
-- Move selected lines up: `K`
-- Join lines and reposition cursor: `mzJ'z`
-- Set file as executable: `<leader>x`
-- Quick substitution of word under cursor: `<leader>s`
-- Clear search in insert mode: `<C-c>`
-- Reload vim configuration: `<leader><leader>`
+### Global
 
-## Git Commands:
-- Push current branch: `<leader>p`
-- Pull with rebase: `<leader>P`
-- Quick push setup (to set remote branch): `<leader>t`
+| Mode | Keybinding | Action             |
+|------|------------|--------------------|
+| n    | Space      | Set map leader     |
 
-## Utilities & Plugins:
-- Open `packer.lua` config file: `<leader>vpp`
-- Start Vim-With-Me session: `<leader>vwm`
-- Stop Vim-With-Me session: `<leader>svwm`
-- Disable 'Q' in normal mode: `Q`
-- Create new Tmux session: `<C-f>`
-- Format buffer with LSP: `<leader>f`
-- Start "make_it_rain" in CellularAutomaton: `<leader>mr`
+### Navigation and UI
 
-## Comments:
-- "Greatest remap ever": Press leader then `p` in visual mode to delete selected and paste
-- "Next greatest remap ever": Press leader then `y` in normal or visual mode to copy to clipboard
-- "This is going to get me cancelled": `<C-c>` in insert mode exits to normal mode
+| Mode | Keybinding       | Action                                 |
+|------|------------------|----------------------------------------|
+| n    | <C-k>            | Next error                             |
+| n    | <C-j>            | Previous error                         |
+| n    | <leader>k        | Next LSP issue                         |
+| n    | <leader>j        | Previous LSP issue                     |
+| n    | K                | Show LSP hover info                    |
+| n    | gd               | LSP find definition                    |
+
+### Editing
+
+| Mode | Keybinding       | Action                                           |
+|------|------------------|--------------------------------------------------|
+| n    | <leader>y        | Select & copy to clipboard                       |
+
+### Git Commands
+
+| Mode | Keybinding       | Action                                |
+|------|------------------|---------------------------------------|
+| n    | <leader>p        | Push current branch                   |
+
+### Utilities & Plugins
+
+| Mode | Keybinding       | Action                                |
+|------|------------------|---------------------------------------|
+| n    | <leader>vpp      | Open `packer.lua` config file         |
+
+
