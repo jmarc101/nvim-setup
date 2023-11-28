@@ -34,7 +34,7 @@ require'nvim-web-devicons'.setup {
  -- takes effect when `strict` is true
  override_by_extension = {
   ["log"] = {
-    icon = "📝",
+    icon = "",
     color = "#81e043",
     name = "Log"
   }

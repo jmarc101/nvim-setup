@@ -2,12 +2,15 @@
 -- Set the leader key to space
 vim.g.mapleader = " "
 
+-- Define a mapping for LazyGit
+vim.api.nvim_set_keymap('n', '<leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
+vim.keymap.set({"n", "v"}, "<leader>gg", ':LazyGit<CR>', { noremap = true, silent = true })
+
 -- Open the Ex (command-line) window when pressing leader + tab
 vim.keymap.set("n", "<leader><tab>", vim.cmd.Ex)
--- Vertical Split
-vim.api.nvim_set_keymap('n', '<leader>wv', ':vsplit<CR>', { silent = true })
 
--- Horizontal Split
+-- Vertical / Horizontal Split
+vim.api.nvim_set_keymap('n', '<leader>wv', ':vsplit<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>wh', ':split<CR>', { silent = true })
 
 -- Navigation keybindings (Ctrl + hjkl for window movement)
@@ -53,6 +56,8 @@ vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
 -- Remap Q to do nothing (avoid accidentally pressing it and closing Neovim)
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<C-q>", ":q<CR>", { noremap = true, silent = true })
+
 
 -- Format code using LSP (Language Server Protocol)
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
@@ -64,9 +69,10 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- Search and replace using visual mode selection
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Add executable permission to the current file
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
 -- Show code actions using LSP (Language Server Protocol)
-vim.keymap.set('n', '<leader><leader>', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true })
+vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true })
 
+
+-- Map <Leader>c to comment/uncomment the line under the cursor
+vim.api.nvim_set_keymap('n', '<Leader>c', [[:s/^\(\s*\)/\1\/\/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>c', [[:s/^\(\s*\)/\1\/\/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
