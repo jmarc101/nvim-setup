@@ -1,5 +1,9 @@
 require("jmarc")
 
+vim.g.vimwiki_list = {
+  { path = '~/google-drive/vimwiki' }
+}
+
 vim.g.copilot_enabled = false
 
 -- Enable line numbers
@@ -9,7 +13,7 @@ vim.o.number = true
 vim.cmd('syntax enable')
 
 -- Enable line wrapping
-vim.o.wrap = true
+vim.o.wrap = false;
 
 -- Set the tab width to 2 spaces
 vim.o.tabstop = 2

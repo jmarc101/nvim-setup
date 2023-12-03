@@ -5,10 +5,17 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- tmux
+  use 'christoomey/vim-tmux-navigator'
+
+  -- vim-wiki
+  use 'vimwiki/vimwiki'
+
   -- Theme
   use "EdenEast/nightfox.nvim"
 
   use({ 'rose-pine/neovim', as = 'rose-pine' })
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Telescope
   use {
@@ -58,7 +65,7 @@ return require('packer').startup(function(use)
   }
 
   -- Treesitter Playground
-  use "nvim-treesitter/playground"
+  --  use "nvim-treesitter/playground"
 
   -- Harpoon
   use "theprimeagen/harpoon"
@@ -68,17 +75,17 @@ return require('packer').startup(function(use)
 
   -- nvim v0.7.2
   use({
-      "kdheepak/lazygit.nvim",
-      requires = {
-          "nvim-telescope/telescope.nvim",
-          "nvim-lua/plenary.nvim",
-      },
-      config = function()
-          require("telescope").load_extension("lazygit")
-      end,
+    "kdheepak/lazygit.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("telescope").load_extension("lazygit")
+    end,
   })
 
--- Treesitter Context
+  -- Treesitter Context
   use "nvim-treesitter/nvim-treesitter-context"
 
   -- LSP and Autocompletion
@@ -124,4 +131,3 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 end)
-
