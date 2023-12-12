@@ -1,8 +1,14 @@
 require("jmarc")
 
+
 vim.g.vimwiki_list = {
-  { path = '~/google-drive/vimwiki' }
+  {
+    path = '~/google-drive/vimwiki',
+    syntax = 'markdown',
+    ext = '.md',
+  }
 }
+
 
 vim.g.copilot_enabled = false
 
