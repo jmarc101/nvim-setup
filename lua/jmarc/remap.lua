@@ -71,8 +71,10 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- Show code actions using LSP (Language Server Protocol)
 vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true })
-
+vim.keymap.set('n', '<leader>bc', ":ClearAllBuffersExceptCurrent<CR>", { noremap = true, silent = true })
 
 -- Map <Leader>c to comment/uncomment the line under the cursor
 vim.api.nvim_set_keymap('n', '<Leader>c', [[:s/^\(\s*\)/\1\/\/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Leader>c', [[:s/^\(\s*\)/\1\/\/<CR>:nohlsearch<CR>]], { noremap = true, silent = true })
+
+
