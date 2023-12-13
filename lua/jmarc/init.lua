@@ -2,19 +2,6 @@ require("jmarc.set")
 require("jmarc.remap")
 require("jmarc.commands")
 
--- clipboard system wide
-vim.o.clipboard = "unnamedplus"
-
--- vimwiki configs
-vim.g.vimwiki_list = {
-  {
-    path = '~/google-drive/vimwiki',
-    syntax = 'markdown',
-    ext = '.md',
-  }
-}
-
-
 vim.g.copilot_enabled = false
 
 -- Enable line numbers
