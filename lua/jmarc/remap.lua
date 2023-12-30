@@ -2,6 +2,10 @@
 -- Set the leader key to space
 vim.g.mapleader = " "
 
+-- Enter will make linebreak
+vim.keymap.set("n", '<C-Enter>', 'i<CR><Esc>', { noremap = true, silent = true })
+vim.keymap.set('n', '<BS>', 'X')
+
 -- Define a mapping for LazyGit
 vim.api.nvim_set_keymap('n', '<leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
 vim.keymap.set({"n", "v"}, "<leader>gg", ':LazyGit<CR>', { noremap = true, silent = true })

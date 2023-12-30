@@ -24,6 +24,12 @@ local function split_types(index)
   end, { index })
 end
 
+local function get_filename()
+  return f(function ()
+    return vim.fn.expand('%:t'):gsub("%..+$", "")
+  end)
+end
+
 -- Loop through web-dev files for the snippets
 for _, ft in ipairs(filetypes) do
   ls.add_snippets(ft, {
@@ -53,15 +59,11 @@ for _, ft in ipairs(filetypes) do
       )
     ),
 
-    -- function component markup
+     -- React functional component
     s(
-      "fcomp",
+      "rfc",
       fmt([[
-        type {}Props = {{
-          {}
-        }}
-        function {}({{ {} }}: {}Props){{
-
+        function {}() {{
           return (
             <></>
           )
@@ -69,25 +71,46 @@ for _, ft in ipairs(filetypes) do
 
         export {{ {} }};
       ]], {
-          rep(1),
-          i(2),
-          i(1),
-          split_types(2),
-          rep(1),
+          get_filename(),
           rep(1),
         }
       )
     ),
 
-  -- it() test statement
-  s(
-    'it',
-    fmt([[
+    -- React functional component Typed
+    s(
+      "rfct",
+      fmt([[
+        type {}Props = {{
+          {}
+        }}
+        function {}({{ {} }}: {}Props) {{
+          return (
+            <></>
+          )
+        }}
+
+        export {{ {} }};
+      ]], {
+          get_filename(),
+          i(1),
+          get_filename(),
+          split_types(1),
+          get_filename(),
+          get_filename(),
+        }
+      )
+    ),
+
+    -- it() test statement
+    s(
+      'it',
+      fmt([[
       it("{}", async() => {{
         render({});
       }});
     ]], { i(1), i(2) })
-  ),
+    ),
 
   })
 end
